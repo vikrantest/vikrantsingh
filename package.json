@@ -1,0 +1,19 @@
+{
+  "name": "url_shortner_ui",
+  "version": "1.0.0",
+  "description": "UI component for url shortner UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon index.js"
+  },
+  "author": "vikrant singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http-status-codes": "^1.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
