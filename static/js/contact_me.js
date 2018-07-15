@@ -16,15 +16,19 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            let param = {
+                        name: name,
+                        email: email,
+                        message: message
+                    }
+            const req_body = JSON.stringify(param);
             $.ajax({
                 url: "././mail/contact_me",
                 type: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    message: message
-                },
+                data: req_body,
                 cache: false,
+                dataType:'json',
+                contentType: "application/json",
                 success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
