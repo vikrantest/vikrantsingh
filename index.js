@@ -32,6 +32,7 @@ app.post('/mail/contact_me',function(req,res){
 		subject: req_data.name, 
 		html: req_data.message
 	};
+	//fix handler with proper status
 	transporter.sendMail(mailOptions, function (err, info) {
 		if(err)
 			console.log(err)
