@@ -19,7 +19,6 @@ app.get('/',function(req,res){
 });
 
 app.post('/mail/contact_me',function(req,res){
-	console.log(req.body);
 	let req_data = req.body;
 	let transporter = nodemailer.createTransport({
 	service: 'gmail',
@@ -28,12 +27,13 @@ app.post('/mail/contact_me',function(req,res){
 			pass: sender_details.password
 		}
 	});
+	let mail_body = req_data.message+"\n \n \n ---- Headers--> \n"+JSON.stringify(req.headers);
 	const message = 'Name - '+req_data.name+' | Email - '
 	const mailOptions = {
 		from: sender_details.email, 
 		to: receiver, 
 		subject: message,
-		html: req_data.message
+		html: mail_body
 	};
 	//fix handler with proper status
 	transporter.sendMail(mailOptions, function (err, info) {
