@@ -18,6 +18,11 @@ app.get('/',function(req,res){
 	res.sendFile(__dirname+'/static/templates/index.html')
 });
 
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+});
+
 app.post('/mail/contact_me',function(req,res){
 	let req_data = req.body;
 	let transporter = nodemailer.createTransport({
